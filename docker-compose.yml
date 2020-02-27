@@ -90,6 +90,18 @@ services:
       - mempool_recorder_mongo_volume1:/data/db
 
 #------------------------------------------------------------------------------
+  tx_mempool_mongo1:
+    image: mongo:latest
+    container_name: tx_mempool_mongo1
+##    ports:
+##      - "27017:27017"
+    networks:
+      bitnet:
+       ipv4_address: ${TX_MEMPOOL_MONGO1_IP_ADDRESS}
+    volumes:
+      - tx_mempool_mongo_volume1:/data/db
+
+#------------------------------------------------------------------------------
   bitcoind_adapter1:
     image: ${REGISTRY_HOST}/bitcoind_adapter:latest
     container_name: bitcoind_adapter1 
@@ -137,7 +149,8 @@ services:
        spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
        spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}      
        spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS}
-       
+       txmempool.persistState: "true"
+       spring.data.mongodb.uri: mongodb://${TX_MEMPOOL_MONGO1_IP_ADDRESS}:${TX_MEMPOOL_MONGO1_PORT}/statistics
     networks:
       bitnet:
        ipv4_address: ${TX_MEMPOOL_IP_ADDRESSS}
@@ -213,6 +226,7 @@ volumes:
   mempool_recorder1_volume:
   bitcoind_adapter_mongo_volume1:
   mempool_recorder_mongo_volume1:
+  tx_mempool_mongo_volume1:
   kafka_data_volume1:
   kafka_data_volume2:
   kafka_data_volume3:
