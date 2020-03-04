@@ -19,12 +19,12 @@ services:
        spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
        spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}      
        spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_SONB_EVENTS}
-       txmempool.persistState: "false"
+       txmempool.persistState: "true"#-----------------------------------------------------------------------------
        spring.data.mongodb.uri: mongodb://${TX_MEMPOOL_MONGO1_IP_ADDRESS}:${TX_MEMPOOL_MONGO1_PORT}/statistics
     networks:
       bitnet:
        ipv4_address: ${TX_MEMPOOL_TEST_IP_ADDRESSS}
-    restart: on-failure
+    restart: always
    # depends_on:
       #- configuration_server
      # - service_discovery
