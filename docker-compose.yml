@@ -123,7 +123,7 @@ services:
     networks:
       bitnet:
        ipv4_address: ${BITCOIND_1_ADAPTER_IP_ADDRESS}
-    restart: on-failure
+    restart: always
     depends_on:
       - bitcoind_adapter_mongo1
       - configuration_server
@@ -154,7 +154,7 @@ services:
     networks:
       bitnet:
        ipv4_address: ${TX_MEMPOOL_IP_ADDRESSS}
-    restart: on-failure
+    restart: always
     depends_on:
       - configuration_server
       - service_discovery
@@ -183,7 +183,7 @@ services:
     networks:
       bitnet:
        ipv4_address: ${MEMPOOL_RECORDER_IP_ADDRESSS}
-    restart: on-failure
+    restart: always
     depends_on:
       - mempool_recorder_mongo1
       - configuration_server
@@ -200,7 +200,7 @@ services:
     networks:
       bitnet:
        ipv4_address: ${GATEWAY_SERVICE_IP_ADDRESS}
-    restart: on-failure
+    restart: always
 #TODO: Maybe needed
 #    depends_on:
 #      - configuration_server
