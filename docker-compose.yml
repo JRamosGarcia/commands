@@ -54,6 +54,21 @@ services:
       - configuration_server_volume:/tmp
 
 #------------------------------------------------------------------------------
+  admin_server:
+    image: ${REGISTRY_HOST}/admin_server:latest
+    container_name: admin_server 
+#    ports:
+#      - "8888:8888"
+    environment:
+      server.port: ${ADMIN_SERVER_PORT}
+      eureka.client.serviceUrl.defaultZone: http://${SERVICE_DISCOVERY_IP_ADDRESS}:${SERVICE_DISCOVERY_PORT}/eureka/
+    networks:
+      bitnet:
+        ipv4_address: ${ADMIN_SERVER_IP_ADDRESS}
+    volumes:
+      - admin_server_volume:/tmp
+
+#------------------------------------------------------------------------------
   service_discovery:
     image: ${REGISTRY_HOST}/service_discovery:latest
     container_name: service_discovery 
@@ -231,5 +246,6 @@ volumes:
   kafka_data_volume2:
   kafka_data_volume3:
   configuration_server_volume:
+  admin_server_volume:
   service_discovery_volume:
   gateway_service_volume:
