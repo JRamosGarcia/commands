@@ -33,6 +33,6 @@ For example:
 	172.18.0.6	txMemPool1
 	172.18.0.12	mempoolRecorder
 	172.18.0.13	txMemPoolTest
-	172.18.0.14 txMempoolMongo1
-	172.18.0.15 adminServer
-	172.18.0.17 gogs
+	172.18.0.14	txMempoolMongo1
+	172.18.0.15	adminServer
+	172.18.0.17	gogs
