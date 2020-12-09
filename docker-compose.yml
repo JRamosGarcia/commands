@@ -24,6 +24,8 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
       KAFKA_CREATE_TOPICS: ${TOPIC_MEMPOOL_TX_EVENTS}:1:1,${TOPIC_SONB_EVENTS}:1:1
       KAFKA_MESSAGE_MAX_BYTES: 4000000
+      KAFKA_LOG_RETENTION_MS: 1
+      KAFKA_LOG_RETENTION_BYTES: 1
     #fetch.message.max.bytes
     #replica.fetch.max.bytes
     #max.message.bytes
@@ -222,8 +224,6 @@ volumes:
   mempool_recorder_mongo_volume1:
   tx_mempool_mongo_volume1:
   kafka_data_volume1:
-  kafka_data_volume2:
-  kafka_data_volume3:
   configuration_server_volume:
   admin_server_volume:
   service_discovery_volume:
