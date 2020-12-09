@@ -1,7 +1,11 @@
-docker volume rm commands_bitcoind_adapter1
 docker volume rm commands_bitcoind_adapter1_volume
-docker volume rm commands_tx_mempool1_volume 
-docker volume rm commands_tx_mempool_mongo_volume1
+docker volume rm commands_tx_mempool1_volume
 docker volume rm commands_mempool_recorder1_volume
 docker volume rm commands_mempool_recorder_mongo_volume1
+docker volume rm commands_tx_mempool_mongo_volume1
+docker volume rm commands_kafka_data_volume1
+docker volume rm commands_configuration_server_volume
+docker volume rm commands_admin_server_volume
+docker volume rm commands_service_discovery_volume
+docker volume rm commands_gateway_service_volume
 

@@ -2,6 +2,18 @@ version: "3"
 services:
 
 #------------------------------------------------------------------------------
+  tx_mempool_mongo1:
+    image: mongo:latest
+    container_name: tx_mempool_mongo1
+    ##    ports:
+    ##      - "27017:27017"
+    networks:
+      bitnet:
+        ipv4_address: ${TX_MEMPOOL_MONGO1_IP_ADDRESS}
+    volumes:
+      - tx_mempool_mongo_volume1:/data/db
+
+#------------------------------------------------------------------------------
   tx_mempool_test:
     image: ${REGISTRY_HOST}/tx_mempool:latest
     container_name: tx_mempool_test
@@ -9,6 +21,7 @@ services:
 #      - "8084:8080"
 #      - "8085:8081"
     environment:
+       spring.profiles.active: "prod"
        JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
        spring.cloud.config.enabled: "true"
        spring.cloud.config.fail-fast: "true"
@@ -43,4 +56,4 @@ networks:
 #------------------------------------------------------------------------------
 volumes:
   tx_mempool_test_volume:
-      
+  tx_mempool_mongo_volume1:      
