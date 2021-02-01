@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   #------------------------------------------------------------------------------
   zookeeper:
@@ -22,7 +22,7 @@ services:
       KAFKA_LOG_DIRS: /tmp/kafka-logs
       KAFKA_LISTENERS: PLAINTEXT://${KAFKA1_IP_ADDRESS}:${KAFKA1_PORT}
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
-      KAFKA_CREATE_TOPICS: ${TOPIC_MEMPOOL_TX_EVENTS}:1:1,${TOPIC_SONB_EVENTS}:1:1
+      KAFKA_CREATE_TOPICS: ${TOPIC_MEMPOOL_TX_EVENTS}:1:1
       KAFKA_MESSAGE_MAX_BYTES: 4000000
       KAFKA_LOG_RETENTION_MS: 1
       KAFKA_LOG_RETENTION_BYTES: 1
@@ -137,12 +137,12 @@ services:
       - bitcoind_adapter1_volume:/tmp
 
   #------------------------------------------------------------------------------
+  #port host:docker
   tx_mempool1:
     image: ${REGISTRY_HOST}/tx_mempool:latest
     container_name: tx_mempool1
-    #    ports:
-    #      - "8084:8080"
-    #      - "8085:8081"
+    ports:
+      - "4445:8080"
     environment:
       spring.profiles.active: "prod"
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
@@ -155,7 +155,6 @@ services:
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
       spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS}
-      txmempool.persistState: "true"
       spring.data.mongodb.uri: mongodb://${TX_MEMPOOL_MONGO1_IP_ADDRESS}:${TX_MEMPOOL_MONGO1_PORT}/statistics
     networks:
       bitnet:
