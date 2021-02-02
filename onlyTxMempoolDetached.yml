@@ -14,13 +14,14 @@ services:
       - tx_mempool_mongo_volume1:/data/db
 
 #------------------------------------------------------------------------------
-  tx_mempool_test:
+  tx_mempool_detached:
     image: ${REGISTRY_HOST}/tx_mempool:latest
     container_name: tx_mempool_test
 #    ports:
 #      - "8084:8080"
 #      - "8085:8081"
     environment:
+       txmempool.detached: true
        spring.profiles.active: "prod"
        JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
        spring.cloud.config.enabled: "true"
