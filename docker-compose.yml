@@ -141,8 +141,8 @@ services:
   tx_mempool1:
     image: ${REGISTRY_HOST}/tx_mempool:latest
     container_name: tx_mempool1
-    ports:
-      - "4445:8080"
+    #ports:
+    #  - "4445:8080"
     environment:
       spring.profiles.active: "prod"
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
@@ -154,7 +154,7 @@ services:
       server.port: ${TX_MEMPOOL_PORT}
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
-      spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS}
+      #spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS}
       spring.data.mongodb.uri: mongodb://${TX_MEMPOOL_MONGO1_IP_ADDRESS}:${TX_MEMPOOL_MONGO1_PORT}/statistics
     networks:
       bitnet:
