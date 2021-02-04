@@ -19,6 +19,7 @@ services:
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
       #spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS}
+      spring.cloud.stream.bindings.txMemPoolEvents.group: txMemPool2
       spring.data.mongodb.uri: mongodb://${TX_MEMPOOL_MONGO1_IP_ADDRESS}:${TX_MEMPOOL_MONGO1_PORT}/statistics
     networks:
       bitnet:
