@@ -8,4 +8,3 @@ docker volume rm commands_configuration_server_volume
 docker volume rm commands_admin_server_volume
 docker volume rm commands_service_discovery_volume
 docker volume rm commands_gateway_service_volume
-

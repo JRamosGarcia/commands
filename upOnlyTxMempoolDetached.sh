@@ -1,1 +1,1 @@
-docker-compose -f onlyTxMempoolDetached.yml up -d
+docker-compose -f txMempoolDetached.yml up -d

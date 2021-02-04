@@ -1,0 +1,1 @@
+docker-compose -f infrastructure.yml -f bitcoindAdapter1.yml -f mongo1TxMempool.yml -f txMempool1.yml up -d
