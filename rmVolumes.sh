@@ -1,5 +1,7 @@
 docker volume rm commands_bitcoind_adapter1_volume
 docker volume rm commands_tx_mempool1_volume
+docker volume rm commands_tx_mempool2_volume
+docker volume rm commands_tx_mempool_detached_volume
 docker volume rm commands_mempool_recorder1_volume
 docker volume rm commands_mempool_recorder_mongo_volume1
 docker volume rm commands_tx_mempool_mongo_volume1

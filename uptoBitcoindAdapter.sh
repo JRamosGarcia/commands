@@ -1,1 +1,4 @@
-docker-compose -f infrastructure.yml -f bitcoindAdapter1.yml up -d
+#!/bin/bash
+./upInfrastructure.sh
+
+docker-compose -f bitcoindAdapter1.yml up -d
