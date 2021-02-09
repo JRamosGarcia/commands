@@ -15,7 +15,7 @@ services:
       spring.data.mongodb.uri: mongodb://${MEMPOOL_RECORDER_MONGO1_IP_ADDRESS}:${MEMPOOL_RECORDER_MONGO1_PORT}/stateOnBlock
       #logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
       #logging.level.org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
-      management.server.port: ${MEMPOOL_RECORDER_MANAGEMENT_PORT}
+      #management.server.port: ${MEMPOOL_RECORDER_MANAGEMENT_PORT}
       server.port: ${MEMPOOL_RECORDER_PORT}
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
@@ -23,12 +23,6 @@ services:
       bitnet:
         ipv4_address: ${MEMPOOL_RECORDER_IP_ADDRESSS}
     restart: always
-    depends_on:
-      - mempool_recorder_mongo1
-      - configuration_server
-      - service_discovery
-    #TODO: Maybe needed
-    #      - bitcoind_adapter1
     volumes:
       - mempool_recorder1_volume:/tmp
 

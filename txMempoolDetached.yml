@@ -15,7 +15,7 @@ services:
       spring.cloud.config.fail-fast: "true"
       spring_cloud_config_uri: http://${CONFIGURATION_SERVER_IP_ADDRESS}:${CONFIGURATION_SERVER_PORT}
       eureka.client.serviceUrl.defaultZone: http://${SERVICE_DISCOVERY_IP_ADDRESS}:${SERVICE_DISCOVERY_PORT}/eureka/
-      management.server.port: ${TX_MEMPOOL_DETACHED_MANAGEMENT_PORT}
+      #management.server.port: ${TX_MEMPOOL_DETACHED_MANAGEMENT_PORT}
       server.port: ${TX_MEMPOOL_DETACHED_PORT}
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
