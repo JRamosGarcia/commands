@@ -16,12 +16,13 @@ services:
       #logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
       #logging.level.org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
       #management.server.port: ${MEMPOOL_RECORDER_MANAGEMENT_PORT}
-      server.port: ${MEMPOOL_RECORDER_PORT}
+      server.port: ${MEMPOOL_RECORDER1_PORT}
       spring.cloud.stream.kafka.binder.zkNodes: ${ZOOKEEPER_IP_ADDRESS}
       spring.cloud.stream.kafka.binder.brokers: ${KAFKA1_IP_ADDRESS}
+      spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS1}
     networks:
       bitnet:
-        ipv4_address: ${MEMPOOL_RECORDER_IP_ADDRESSS}
+        ipv4_address: ${MEMPOOL_RECORDER_IP_ADDRESSS1}
     restart: always
     volumes:
       - mempool_recorder1_volume:/tmp
