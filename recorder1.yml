@@ -22,7 +22,7 @@ services:
       spring.cloud.stream.bindings.txMemPoolEvents.destination: ${TOPIC_MEMPOOL_TX_EVENTS1}
     networks:
       bitnet:
-        ipv4_address: ${MEMPOOL_RECORDER_IP_ADDRESSS1}
+        ipv4_address: ${MEMPOOL_RECORDER1_IP_ADDRESSS}
     restart: always
     volumes:
       - mempool_recorder1_volume:/tmp

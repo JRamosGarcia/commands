@@ -1,9 +1,11 @@
 #!/bin/sh
 
 tmux new -s bitcoind -d 
-tmux send-keys 'cd ~/PROGRAMS/bitcoin-master/src' C-m 'clear' C-m './bitcoind &'
+tmux send-keys 'cd ~/PROGRAMS/bitcoin-0.21.0/bin' C-m 'clear' C-m './bitcoind &'
 tmux split-window -v
-tmux send-keys 'cd ~/PROGRAMS/bitcoin-master/src' C-m 
+tmux send-keys 'cd ~/PROGRAMS/bitcoin-0.21.0/bin' C-m 
+tmux split-window -v
+tmux send-keys 'cd ~/.bitcoin' C-m 
 tmux send-keys 'clear' C-m
 #
 tmux new -s docker -d
