@@ -1,9 +1,12 @@
 #!/bin/sh
 
+rm ~/.dotfiles/.*.swp
+rm ~/Documents/.*.swp
+
 tmux new -s bitcoind -d 
-tmux send-keys 'cd ~/PROGRAMS/bitcoin-0.21.0/bin' C-m 'clear' C-m './bitcoind &'
+tmux send-keys 'cd ~/programas/bitcoin-0.21.0/bin' C-m 'clear' C-m './bitcoind &'
 tmux split-window -v
-tmux send-keys 'cd ~/PROGRAMS/bitcoin-0.21.0/bin' C-m 
+tmux send-keys 'cd ~/programas/bitcoin-0.21.0/bin' C-m 
 tmux split-window -v
 tmux send-keys 'cd ~/.bitcoin' C-m 
 tmux send-keys 'clear' C-m
@@ -22,13 +25,13 @@ tmux new -s sshLinode -d
 tmux send-keys 'cd ~/git' C-m 'clear' C-m
 tmux send-keys 'ssh root@mempoolexplorer.com' C-m
 #
-tmux new -s tareas -d 
-tmux send-keys 'cd ~/Desktop' C-m
-tmux send-keys 'vim tareas.txt' C-m 
+tmux new -s server -d
+tmux send-keys 'cd ~/git' C-m 'clear' C-m
+tmux send-keys 'ssh tomillo@server' C-m
 #
-tmux new -s shortcuts -d 
-tmux send-keys 'cd ~/Desktop' C-m 
-tmux send-keys 'vim shortcuts.txt' C-m 
+tmux new -s vim -d 
+tmux send-keys 'cd ~/.dotfiles' C-m 
+tmux send-keys 'vim readme.md' C-m ':tabe ~/.dotfiles/initComputer.sh' C-m ':tabe ~/Documents/shortcuts.txt' C-m ':tabe ~/Documents/comandos-linux.txt' C-m ':tabe ~/Documents/tareas.txt' C-m
 #
 tmux attach
 
