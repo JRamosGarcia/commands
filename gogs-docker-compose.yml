@@ -8,16 +8,16 @@ services:
         POSTGRES_PASSWORD: "anon"
         POSTGRES_DB: "gogs"
       volumes:
-       - "gogs_db_data:/var/lib/postgresql/data"
+       - "~/.gogs/sqldata:/var/lib/postgresql/data"
       networks:
         bitnet:
           ipv4_address: 172.18.0.16
     gogs:
       image: gogs/gogs:latest
       restart: always
-      ports:
-       - "10022:22"
-       - "3000:3000"
+      #ports:
+      # - "10022:22"
+      # - "3000:3000"
       links:
        - postgres
       environment:
@@ -26,15 +26,9 @@ services:
         bitnet:
           ipv4_address: 172.18.0.17
       volumes:
-       - "gogs_data:/data"
+       - "~/.gogs/data:/data"
       depends_on:
        - postgres
-
-volumes:
-    gogs_db_data:
-      driver: local
-    gogs_data:
-      driver: local
 
 networks:
   bitnet:
