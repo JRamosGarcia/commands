@@ -30,8 +30,7 @@ tmux send-keys 'cd ~/git' C-m 'clear' C-m
 tmux send-keys 'ssh tomillo@server' C-m
 #
 tmux new -s vim -d 
-tmux send-keys 'cd ~/.dotfiles' C-m 
-tmux send-keys 'vim readme.md' C-m ':tabe ~/.dotfiles/initComputer.sh' C-m ':tabe ~/Documents/shortcuts.txt' C-m ':tabe ~/Documents/comandos-linux.txt' C-m ':tabe ~/Documents/tareas.txt' C-m
+tmux send-keys 'vim ~/.dotfiles/readme.md' C-m ':tabe ~/.dotfiles/initComputer.sh' C-m ':tabe ~/.dotfiles/txts/shortcuts.txt' C-m ':tabe ~/.dotfiles/txts/comandos-linux.txt' C-m ':tabe ~/.dotfiles/txts/tareas.txt' C-m
 #
 tmux attach
 
