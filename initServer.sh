@@ -47,6 +47,7 @@ sudo systemctl restart tor
 
 #Bitcoind
 
+mkdir -p ~/programas
 wget https://bitcoincore.org/bin/bitcoin-core-${bitcoin_ver}/SHA256SUMS.asc 
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys ${bitcoin_core_sig} 
 gpg --verify SHA256SUMS.asc 
