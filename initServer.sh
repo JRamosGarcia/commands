@@ -13,7 +13,7 @@ bitcoin_core_sig=01EA5486DE18A882D4C2684590C8019E36C2E964
 sudo apt update && sudo apt -y upgrade
 
 # install various utilities
-sudo apt install -y vim net-tools htop tmux git stow curl stress-ng lm-sensors nmap tree tor npm
+sudo apt install -y vim net-tools htop tmux git stow curl stress-ng lm-sensors nmap tree tor npm unzip zip
 
 #docker installation (https://docs.docker.com/engine/install/ubuntu/) and (https://docs.docker.com/engine/install/linux-postinstall/)
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
