@@ -25,16 +25,18 @@ services:
     networks:
       bitnet:
         ipv4_address: ${KAFKA1_IP_ADDRESS}
-    volumes:
-      - kafka_data_volume1:/tmp/kafka-logs
+# No necesitamos volumen porque no guardamos ningun dato.
+# Ademas asi no da error al chequear que la instancia de zookeeper es la misma        
+#    volumes:
+#      - kafka_data_volume1:/tmp/kafka-logs
     #      - /var/run/docker.sock:/var/run/docker.sock # Esto no deberia ponerse,
     #    depends_on:
     #  - zookeeper
 
 
 #------------------------------------------------------------------------------
-volumes:
-  kafka_data_volume1:
+#volumes:
+#  kafka_data_volume1:
 
 #------------------------------------------------------------------------------
 networks:
