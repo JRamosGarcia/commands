@@ -28,8 +28,8 @@ services:
     volumes:
       - kafka_data_volume1:/tmp/kafka-logs
     #      - /var/run/docker.sock:/var/run/docker.sock # Esto no deberia ponerse,
-    depends_on:
-      - zookeeper
+    #    depends_on:
+    #  - zookeeper
 
 
 #------------------------------------------------------------------------------
